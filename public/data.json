@@ -1,0 +1,27 @@
+{
+    "books": [
+      {
+        "title": "JavaScript Everywhere",
+        "author": "Adam D. Scott",
+        "isbn": "9781492046981",
+        "cover_image": "https://i.ibb.co/xz96WjV/image-25.png",
+        "description": "A hands-on book that teaches how to build universal JavaScript applications with Node.js, React, and React Native.",
+        "price": 29.99,
+        "published_date": "2019-11-20",
+        "category": "JavaScript",
+        "stock": 42
+      },
+      {
+        "title": "Python Crash Course",
+        "author": "Eric Matthes",
+        "isbn": "9781593279288",
+        "cover_image": "https://i.ibb.co/xz96WjV/image-25.png",
+        "description": "A fast-paced, thorough introduction to programming with Python.",
+        "price": 34.95,
+        "published_date": "2019-05-03",
+        "category": "Python",
+        "stock": 58
+      }
+    ]
+  }
+  
