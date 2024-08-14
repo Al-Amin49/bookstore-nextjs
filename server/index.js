@@ -2,7 +2,7 @@
 import express from 'express'
 import dotenv from 'dotenv';
 import cors from 'cors'
-import { MongoClient, ServerApiVersion } from 'mongodb';
+import { MongoClient, ObjectId, ServerApiVersion } from 'mongodb';
 dotenv.config()
 const app = express()
 const port = process.env.PORT || 5000;
@@ -37,12 +37,23 @@ async function run() {
           res.send(result);
       })
 
-      app.get('/book/:id', async(req, res) => {
-          const id = req.params.id;
-          const query = {_id: new ObjectId(id)}
-          const result = await bookCollection.findOne(query);
-          res.send(result);
-      })
+      app.get('/books/:id', async (req, res) => {
+        const id = req.params.id;
+    
+        // Validate the ID
+        if (!ObjectId.isValid(id)) {
+            return res.status(400).send({ error: 'Invalid book ID' });
+        }
+    
+        const query = { _id: new ObjectId(id) };
+        const result = await bookCollection.findOne(query);
+    
+        if (result) {
+            res.send(result);
+        } else {
+            res.status(404).send({ error: 'Book not found' });
+        }
+    });
 
       app.post('/book', async (req, res) => {
           const newCoffee = req.body;

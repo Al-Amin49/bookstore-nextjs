@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="w-full sm:w-1/2 md:w-1/4 mb-6 md:mb-0">
             <h5 className="text-white font-semibold text-3xl mb-4">Book Store</h5>
             <p className="text-sm w-[95%] ">
-              Welcome to Book Haven, your number one source for all things books. We're dedicated to giving you the very best of literature, with a focus on variety, quality, and customer service.
+              Welcome to Book Haven, your number one source for all things books. We are dedicated to giving you the very best of literature, with a focus on variety, quality, and customer service.
             </p>
           </div>
 

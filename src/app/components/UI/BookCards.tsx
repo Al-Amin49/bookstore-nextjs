@@ -1,22 +1,28 @@
-"use client"
+"use client";
 import { useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
-const BookCard = ({ book }) => {
- 
+const BookCards = ({ book }) => {
   const [showFullDescription, setShowFullDescription] = useState(false);
 
+  const router=useRouter();
   // Function to toggle the description
   const toggleDescription = () => {
     setShowFullDescription(!showFullDescription);
   };
-
+  const goToDetailsPage=()=>{
+    router.push(`/books/${book._id}`);
+  }
   // Limit the number of words shown in the truncated description
   const truncateText = (text, wordLimit) => {
     const words = text.split(" ");
-    return words.length > wordLimit ? words.slice(0, wordLimit).join(" ") + "..." : text;
+    return words.length > wordLimit
+      ? words.slice(0, wordLimit).join(" ") + "..."
+      : text;
   };
 
+  
   return (
     <div className="rounded overflow-hidden shadow-lg flex flex-col my-10">
       <div className="relative">
@@ -43,7 +49,9 @@ const BookCard = ({ book }) => {
         </div>
         <p className="text-gray-700 mb-2 font-medium">by {book.author}</p>
         <p className="text-gray-600 mb-4">
-          {showFullDescription ? book.description : truncateText(book.description, 15)}
+          {showFullDescription
+            ? book.description
+            : truncateText(book.description, 15)}
           <button
             className="text-indigo-600 hover:underline ml-2"
             onClick={toggleDescription}
@@ -51,10 +59,13 @@ const BookCard = ({ book }) => {
             {showFullDescription ? "Show less" : "Read more"}
           </button>
         </p>
+       
       </div>
-      <button className="bg-green-500 px-4 py-2 rounded-md w-[60%] mx-auto text-white mb-4">View Details</button>
+      <button onClick={goToDetailsPage} className="bg-green-500 px-4 py-2 rounded-md w-[60%] mx-auto text-white mb-4">
+        View Details
+      </button>
     </div>
   );
 };
 
-export default BookCard;
+export default BookCards;
