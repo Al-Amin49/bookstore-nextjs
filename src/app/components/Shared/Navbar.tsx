@@ -32,7 +32,7 @@ const Navbar = () => {
     </div>
      {/* Navigation links for mobile view */}
      {isOpen && (
-        <nav className=" space-y-3 md:hidden flex flex-col bg-black text-white w-fit rounded-md p-5 absolute right-0 top-20">
+        <nav className=" space-y-3 md:hidden flex flex-col bg-black text-white w-fit rounded-md p-5 absolute right-0 top-20 z-10">
           <Link href="/" onClick={toggleMenu}>Home</Link>
           <Link href="/books" onClick={toggleMenu}>Books</Link>
           <Link href="/addbook" onClick={toggleMenu}>Add Book</Link>
