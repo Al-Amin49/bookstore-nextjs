@@ -2,8 +2,13 @@
 import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { TBook } from "@/types";
 
-const BookCards = ({ book }) => {
+type TBookDetailsProps={
+  book:TBook
+}
+
+const BookCards = ({ book }:TBookDetailsProps) => {
   const [showFullDescription, setShowFullDescription] = useState(false);
 
   const router=useRouter();
@@ -15,7 +20,7 @@ const BookCards = ({ book }) => {
     router.push(`/books/${book._id}`);
   }
   // Limit the number of words shown in the truncated description
-  const truncateText = (text, wordLimit) => {
+  const truncateText = (text:string, wordLimit:number) => {
     const words = text.split(" ");
     return words.length > wordLimit
       ? words.slice(0, wordLimit).join(" ") + "..."

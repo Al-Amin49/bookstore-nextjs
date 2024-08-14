@@ -1,5 +1,6 @@
 import Link from "next/link";
 import BookCards from "./components/UI/BookCards";
+import { TBook } from "@/types";
 
 const HomePage = async () => {
   const res = await fetch("http://localhost:5000/books");
@@ -10,7 +11,7 @@ const HomePage = async () => {
         Latest Books you want
       </h3>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {books.slice(0, 3).map((book) => (
+        {books.slice(0, 3).map((book:TBook) => (
           <BookCards key={book._id} book={book}></BookCards>
         ))}
       </div>

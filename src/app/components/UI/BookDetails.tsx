@@ -1,9 +1,13 @@
 "use client"
+import { TBook } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-const BookDetails = ({book}) => {
+type TBookDetailsProps={
+    book:TBook
+}
+const BookDetails = ({book}:TBookDetailsProps) => {
 
   
     const router = useRouter();

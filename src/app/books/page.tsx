@@ -1,3 +1,4 @@
+import { TBook } from "@/types";
 import BookCards from "../components/UI/BookCards";
 
 const BooksPage = async () => {
@@ -11,7 +12,7 @@ const BooksPage = async () => {
         All Books
       </h3>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {books.map((book) => (
+        {books.map((book:TBook) => (
           <BookCards key={book._id} book={book}></BookCards>
         ))}
       </div>
