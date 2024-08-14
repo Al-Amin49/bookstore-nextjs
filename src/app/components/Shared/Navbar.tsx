@@ -14,7 +14,7 @@ const Navbar = () => {
    <>
     <div className="bg-black text-white p-5">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-medium text-green-500">Book Store</h1>
+        <Link href="/"><h1 className="text-2xl font-medium text-green-500">Book Store</h1></Link>
         <div className="md:hidden">
           {/* Toggle button for mobile view */}
           <button onClick={toggleMenu}>
