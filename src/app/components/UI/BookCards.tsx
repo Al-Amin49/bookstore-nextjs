@@ -21,8 +21,8 @@ const BookCards = ({ book }:TBookDetailsProps) => {
   }
   // Limit the number of words shown in the truncated description
   const truncateText = (text:string, wordLimit:number) => {
-    const words = text.split(" ");
-    return words.length > wordLimit
+    const words = text?.split(" ");
+    return words?.length > wordLimit
       ? words.slice(0, wordLimit).join(" ") + "..."
       : text;
   };
